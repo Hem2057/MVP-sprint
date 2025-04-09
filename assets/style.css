@@ -1,0 +1,281 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #3c3636;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.site-header nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 300px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card-btn {
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-btn:hover {
+  background-color: #0056b3;
+}
+
+.site-footer {
+  text-align: center;
+  background: #222;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Animations */
+
+/* 3D Tilt Effect */
+.course-card.tilt-in:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Gradient Overlay Effect */
+.course-card.gradient-in:hover {
+  position: relative;
+}
+
+.course-card.gradient-in:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,123,255,0.3) 0%, rgba(0,123,255,0.1) 100%);
+  transition: all 0.3s ease;
+}
+
+/* Glow Effect */
+.course-card.glow-in:hover {
+  box-shadow: 0 0 20px rgba(214, 51, 6, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Pulse animation for click */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.course-card:active {
+  animation: pulse 0.3s ease;
+}
+
+/* Card 1 - 3D Tilt Effect */
+.card-1:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Card 2 - Neon Border Glow */
+.card-2 {
+  position: relative;
+  overflow: hidden;
+}
+.card-2::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+  background-size: 200% 200%;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card-2:hover::before {
+  opacity: 0.8;
+  animation: gradientBG 3s ease infinite;
+}
+
+/* Card 3 - Floating Card */
+.card-3:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Card 4 - Gradient Overlay */
+.card-4:hover {
+  position: relative;
+}
+.card-4:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,123,255,0.3) 0%, rgba(0,123,255,0.1) 100%);
+}
+
+/* Card 5 - Parallax Effect */
+.card-5 {
+  position: relative;
+  overflow: hidden;
+}
+.card-5 .card-image {
+  transition: transform 0.5s ease;
+}
+.card-5:hover .card-image {
+  transform: scale(1.1);
+}
+
+/* Card 6 - Flip Card */
+.card-6 {
+  perspective: 1000px;
+}
+.card-6 .flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card-6:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Card 7 - Shine Effect */
+.card-7 {
+  position: relative;
+  overflow: hidden;
+}
+.card-7::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+.card-7:hover::after {
+  left: 120%;
+}
+
+/* Shared Animations */
+@keyframes gradientBG {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes shadowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,123,255,0.4); }
+  100% { box-shadow: 0 0 0 20px rgba(0,123,255,0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card 2 - Bounce Effect */
+.card-2:hover {
+  animation: bounce 0.5s ease;
+}
+
+/* Card 4 - Shadow Pulse */
+.card-4:hover {
+  animation: shadowPulse 1.5s infinite alternate;
+}
+
+/* Card 6 - Color Shift */
+.card-6:hover {
+  background: linear-gradient(45deg, #f3ec78, #af4261);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
